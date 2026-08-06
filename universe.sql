@@ -16,33 +16,29 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-ALTER TABLE ONLY public.planet DROP CONSTRAINT fk_planet;
-ALTER TABLE ONLY public.moon DROP CONSTRAINT fk_p_moon;
-ALTER TABLE ONLY public.star DROP CONSTRAINT fk_g_star;
-ALTER TABLE ONLY public.star DROP CONSTRAINT uq_name_star;
-ALTER TABLE ONLY public.planet DROP CONSTRAINT uq_name_planet;
-ALTER TABLE ONLY public.star DROP CONSTRAINT uq_name_pl;
-ALTER TABLE ONLY public._5th_table DROP CONSTRAINT uq_name_5;
-ALTER TABLE ONLY public.galaxy DROP CONSTRAINT uq_name;
-ALTER TABLE ONLY public.star DROP CONSTRAINT star_pkey;
-ALTER TABLE ONLY public.moon DROP CONSTRAINT qu_name_mo;
-ALTER TABLE ONLY public.planet DROP CONSTRAINT planet_pkey;
-ALTER TABLE ONLY public.moon DROP CONSTRAINT moon_pkey;
-ALTER TABLE ONLY public.galaxy DROP CONSTRAINT galaxy_pkey;
-ALTER TABLE ONLY public._5th_table DROP CONSTRAINT _5th_table_pkey;
-ALTER TABLE public.star ALTER COLUMN star_id DROP DEFAULT;
-ALTER TABLE public.planet ALTER COLUMN planet_id DROP DEFAULT;
-ALTER TABLE public.moon ALTER COLUMN moon_id DROP DEFAULT;
-ALTER TABLE public.galaxy ALTER COLUMN galaxy_id DROP DEFAULT;
-DROP SEQUENCE public.star_s_id_seq;
-DROP TABLE public.star;
-DROP SEQUENCE public.planet_p_id_seq;
-DROP TABLE public.planet;
-DROP SEQUENCE public.moon_m_id_seq;
-DROP TABLE public.moon;
-DROP SEQUENCE public.galaxy_g_id_seq;
-DROP TABLE public.galaxy;
-DROP TABLE public._5th_table;
+DROP DATABASE universe;
+--
+-- Name: universe; Type: DATABASE; Schema: -; Owner: freecodecamp
+--
+
+CREATE DATABASE universe WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C.UTF-8' LC_CTYPE = 'C.UTF-8';
+
+
+ALTER DATABASE universe OWNER TO freecodecamp;
+
+\connect universe
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
